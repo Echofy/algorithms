@@ -1,6 +1,8 @@
-// link list
+package datastru.cla;
 
-// create class Node
+// Link List
+
+// 节点
 class Link
 {
 	public int key;
@@ -15,17 +17,31 @@ class Link
 	}
 }
 
-// create class link table
+// 链表
 class LinkList
 {
 	private Link head;
 
 	public LinkList()
 	{
-		//head = new Link(0);
 		head = null;
 	}
 
+	// 判断链表是否为空
+	public boolean isEmpty()
+	{
+		return (head == null);
+	}
+
+	// 插入第一个元素
+	public void insertFirst(int value)
+	{
+		Link link = new Link(value);
+		link.next = head;
+		head = link;
+	}
+
+	// 插入
 	public void insert(int value)
 	{
 		if(head == null)
@@ -38,6 +54,7 @@ class LinkList
 		head.next = link;
 	}
 
+	// 查找
 	public Link search(int value)
 	{
 		Link first = head.next;
@@ -48,6 +65,7 @@ class LinkList
 		return first;
 	}
 
+	// 删除
 	public boolean delete(int value)
 	{
 		Link link = search(value);
@@ -64,6 +82,7 @@ class LinkList
 		return true;
 	}
 
+	// 显示
 	public void display()
 	{
 		for(Link start = head.next; start != null; start = start.next)
@@ -73,12 +92,15 @@ class LinkList
 
 }// end class linkList
 
-// create class to test 
+
+// 测试类
 class linklistApp
 {
 	public static void main(String [] args)
 	{
 		LinkList linklist = new LinkList();
+
+		linklist.insertFirst(32);
 
 		linklist.insert(20);
 		linklist.insert(40);
