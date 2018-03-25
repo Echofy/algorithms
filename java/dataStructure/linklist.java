@@ -3,14 +3,12 @@ package datastru.cla;
 // Link List
 
 // 节点
-class Link
-{
+class Link {
 	public int key;
 	public Link prev;
 	public Link next;
 
-	public Link(int value)
-	{
+	public Link(int value) {
 		key = value;
 		prev = null;
 		next = null;
@@ -18,32 +16,27 @@ class Link
 }
 
 // 链表
-class LinkList
-{
+class LinkList {
 	private Link head;
 
-	public LinkList()
-	{
+	public LinkList() {
 		head = null;
 	}
 
 	// 判断链表是否为空
-	public boolean isEmpty()
-	{
+	public boolean isEmpty() {
 		return (head == null);
 	}
 
 	// 插入第一个元素
-	public void insertFirst(int value)
-	{
+	public void insertFirst(int value) {
 		Link link = new Link(value);
 		link.next = head;
 		head = link;
 	}
 
 	// 插入
-	public void insert(int value)
-	{
+	public void insert(int value) {
 		if(head == null)
 			head.next = null;
 		Link link = new Link(value);
@@ -55,8 +48,7 @@ class LinkList
 	}
 
 	// 查找
-	public Link search(int value)
-	{
+	public Link search(int value) {
 		Link first = head.next;
 
 		while(first != null && first.key != value)
@@ -66,8 +58,7 @@ class LinkList
 	}
 
 	// 删除
-	public boolean delete(int value)
-	{
+	public boolean delete(int value) {
 		Link link = search(value);
 
 		if(link == null)
@@ -83,21 +74,17 @@ class LinkList
 	}
 
 	// 显示
-	public void display()
-	{
+	public void display() {
 		for(Link start = head.next; start != null; start = start.next)
 			System.out.print(start.key + " ");
 	 	System.out.println();
 	}
-
-}// end class linkList
+} // end class linkList
 
 
 // 测试类
-class linklistApp
-{
-	public static void main(String [] args)
-	{
+class linklistApp {
+	public static void main(String [] args) {
 		LinkList linklist = new LinkList();
 
 		linklist.insertFirst(32);
@@ -109,11 +96,11 @@ class linklistApp
 		linklist.insert(10);
 		linklist.insert(70);
 		linklist.insert(50);
-		linklist.insert(90);
-		linklist.insert(80);
-		linklist.insert(100);
 
 		linklist.display();
 
-	}
-}// end class linklistApp
+		linklist.delete(40);
+
+		linklist.display();
+	} // end main
+} // end class linklistApp
