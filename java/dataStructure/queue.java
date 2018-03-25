@@ -1,15 +1,15 @@
 package datastru.cla;
 
-class Queue
-{
+// Queue
+
+class Queue {
 	private int [] qArr;
 	private int maxSize;
 	private int front;
 	private int rear;
 	private int nItems;
 
-	public Queue(int mx)
-	{
+	public Queue(int mx) {
 		maxSize = mx;
 		qArr = new int[maxSize];
 		front = 0;
@@ -17,8 +17,8 @@ class Queue
 		nItems = 0;
 	}
 
-	public void insert(int value)
-	{
+	// 入队列
+	public void enqueue(int value) {
 		if(rear == maxSize-1)
 			rear = -1;
 
@@ -26,8 +26,8 @@ class Queue
 		nItems ++;
 	}
 
-	public int remove()
-	{
+	// 出队列
+	public int dequeue() {
 		int temp = qArr[front];
 
 		if(++front == maxSize)
@@ -38,44 +38,39 @@ class Queue
 		return temp;
 	}
 
-	public int peekFront()
-	{
+	// 访问队列元素
+	public int peekFront() {
 		return qArr[front];
 	}
 
-	public boolean isEmpty()
-	{
+	// 判断队列是否为空
+	public boolean isEmpty() {
 		return (nItems == 0);
 	}
 
-	public boolean isFull()
-	{
+	// 判断队列是否已满
+	public boolean isFull() {
 		return (nItems == maxSize);
 	}
-
 } // end class Queue
 
-class QueueApp
-{
-	public static void main(String [] args)
-	{
+class QueueApp {
+	public static void main(String [] args) {
 		Queue theQueue = new Queue(10);
 
-		theQueue.insert(19);
-		theQueue.insert(64);
-		theQueue.insert(36);
-		theQueue.insert(95);
-		theQueue.insert(33);
-		theQueue.insert(53);
-		theQueue.insert(27);
+		theQueue.enqueue(19);
+		theQueue.enqueue(64);
+		theQueue.enqueue(36);
+		theQueue.enqueue(95);
+		theQueue.enqueue(33);
+		theQueue.enqueue(53);
+		theQueue.enqueue(27);
 
-		theQueue.remove();
+		theQueue.dequeue();
 
-		while(!theQueue.isEmpty())
-		{
-			System.out.print(theQueue.remove() + " ");
+		while(!theQueue.isEmpty()) {
+			System.out.print(theQueue.dequeue() + " ");
 		}
-
 	} // end main
 } // end class QueueApp
 

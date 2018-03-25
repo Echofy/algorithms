@@ -1,30 +1,32 @@
+package datastru.cla;
+
 import java.io.*;
 
-class Stack
-{
+// 栈
+
+class Stack {
 	private int maxSize;
 	private int [] stackArr;
 	private int top;
 
-	public Stack(int mx)
-	{
+	public Stack(int mx) {
 		maxSize = mx;
 		stackArr = new int[maxSize];
 		top = -1;
 	}
 
-	public boolean isEmpty()
-	{
+	// 判断栈是否为空
+	public boolean isEmpty() {
 		return (top == -1);
 	}
 
-	public boolean isFull()
-	{
+	// 判断栈是否已满
+	public boolean isFull() {
 		return (top == maxSize-1);
 	}
 
-	public boolean push(int value)
-	{
+	// 入栈
+	public boolean push(int value) {
 		if(isFull())
 			return false;
 
@@ -32,16 +34,16 @@ class Stack
 		return true;
 	}
 
-	public int pop()
-	{
+	// 出栈
+	public int pop() {
 		if(isEmpty())
 			return -999;
 
 		return stackArr[top--];
 	}
 
-	public int peek()
-	{
+	// 访问
+	public int peek() {
 		if(isEmpty())
 			return -999;
 
@@ -49,11 +51,9 @@ class Stack
 	}
 } // end class stackArr
 
-
-class StackApp
-{
-	public static void main(String [] args)
-	{
+// 测试类
+class StackApp {
+	public static void main(String [] args) {
 		Stack theStack = new Stack(20);
 		int value;
 
@@ -65,12 +65,9 @@ class StackApp
 		theStack.push(31);
 		theStack.push(8);
 
-		while(!theStack.isEmpty())
-		{
+		while(!theStack.isEmpty()) {
 			value = theStack.pop();
 			System.out.print(value + " ");
 		}
-
 	} // end main
-
 } // end class StackApp
