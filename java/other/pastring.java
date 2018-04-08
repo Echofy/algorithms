@@ -1,16 +1,14 @@
-//Longest-Common-Subsequence , LCS
+package other.cla;
 
-class paString
-{
+class paString {
 	public String str;
 
-	public paString(String _str)
-	{
+	public paString(String _str) {
 		str = _str;
 	}
 
-	public String revStr()
-	{
+	// 反转字符串
+	public String revStr() {
 		String reStr = "";
 		int len = str.length();
 
@@ -20,8 +18,8 @@ class paString
 		return reStr;
 	}
 
-	public int lcsStr(String str1, String str2)
-	{
+	// 最长公共子序列
+	public int lcsStr(String str1, String str2) {
 		int lenStr1 = str1.length();
 		int lenStr2 = str2.length();
 		int lcs = 0;
@@ -38,8 +36,7 @@ class paString
 		return lcs;
 	}
 
-	public int deleNum()
-	{
+	public int deleNum() {
 		String reStr = revStr();
 		int lcs = lcsStr(str, reStr);
 		int dele = str.length() - lcs;
@@ -48,10 +45,9 @@ class paString
 	}
 }
 
-class paStrApp
-{
-	public static void main(String [] args)
-	{
+// 测试类
+class paStrApp {
+	public static void main(String [] args) {
 		paString str = new paString("abcda");
 
 		int num = str.deleNum();

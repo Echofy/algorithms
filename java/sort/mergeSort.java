@@ -1,48 +1,41 @@
 // merge sort
 
 // create an array class
-class ArrayMer
-{
+class ArrayMer {
 	// attribute
 	private double [] arr;
 	private int nElems;
 
 	// constructor 
-	public ArrayMer(int maxSize)
-	{
+	public ArrayMer(int maxSize) {
 		arr = new double [maxSize];
 		nElems = 0;
 	}
 
 	// insert value 
-	public void insert(double value)
-	{
+	public void insert(double value) {
 		arr[nElems] = value;
 		nElems++;
 	}
 
 	// display
-	public void display()
-	{
+	public void display() {
 		for(int j = 0; j < nElems; j++)
 			System.out.print(arr[j] + " ");
 		System.out.println("");
 	}
 
 	// merge sort called by main, create a workspace 
-	public void mergeSort()
-	{
+	public void mergeSort() {
 		double [] workspace = new double [nElems];
 		recMergeSort(workspace, 0, nElems-1);
 	}
 
 	// recurrative merge 
-	public void recMergeSort(double [] workspace, int lowerbound, int upperbound)
-	{
+	public void recMergeSort(double [] workspace, int lowerbound, int upperbound) {
 		if(lowerbound == upperbound)
 			return;
-		else
-		{
+		else {
 			int mid = (lowerbound + upperbound) / 2;	
 			recMergeSort(workspace, lowerbound, mid);
 			recMergeSort(workspace, mid+1, upperbound);
@@ -51,15 +44,13 @@ class ArrayMer
 	} // end recMergeSort 
 
 	// merge two array
-	public void merge(double [] workspace, int lowerbound, int mid, int upperbound)
-	{
+	public void merge(double [] workspace, int lowerbound, int mid, int upperbound) {
 		int j = 0; 
 		int lowerPtr = lowerbound;
 		int n = upperbound - lowerbound + 1;
 		//int highPtr = mid+1;
 
-		while(lowerbound <= mid && mid+1 <= upperbound)
-		{
+		while(lowerbound <= mid && mid+1 <= upperbound) {
 			if(arr[lowerbound] < arr[mid+1])
 				workspace[j++] = arr[lowerbound++];
 			else
@@ -75,16 +66,13 @@ class ArrayMer
 	}
 
 	// merge call
-	public void mergeSort2()
-	{
+	public void mergeSort2() {
 		recMergeSort2(0, nElems-1);
 	} // end mergeSort2
 
 	// introduction of algorithms 
-	public void recMergeSort2(int p, int r)
-	{
-		if(p < r)
-		{
+	public void recMergeSort2(int p, int r) {
+		if(p < r) {
 			int q = (p + r) / 2;
 			recMergeSort2(p, q);
 			recMergeSort2(q+1, r);
@@ -92,9 +80,8 @@ class ArrayMer
 		}
 	} // end recMergeSort2
 
-	//
-	public void merge2(int p, int q, int r)
-	{
+	// merge sort
+	public void merge2(int p, int q, int r) {
 		int lsize = q-p+1;
 		int rsize = r-q;
 		double [] larr = new double [lsize+1];
@@ -112,24 +99,19 @@ class ArrayMer
 
 		// sort
 		int i = 0, j = 0, k = p;
-		while(k < r+1)
-		{
+		while(k < r+1) {
 			if(larr[i] < rarr[j])
 				arr[k++] = larr[i++];
 			else
 				arr[k++] = rarr[j++];
 		} // end while 
-			
 	} // end merge2
-
 } // end class ArrayMer
 
 
 // create class to test 
-class MergeSortTest
-{
-	public static void main(String [] args)
-	{
+class MergeSortTest {
+	public static void main(String [] args) {
 		ArrayMer arr = new ArrayMer(30);
 
 		arr.insert(12);
